@@ -1,0 +1,41 @@
+@charset "utf-8";
+
+#chatbox {
+	float: left;
+	position: relative;
+	top: 0%;
+	margin-left: 5%;
+}
+
+.chat{width:360px;height:580px;float:left;background-color:#f5f5f5;position:relative;padding:56px 0 52px;box-sizing:border-box;background-image:url("chat_bg.jpg");background-size:cover;}
+.chat .title{width:100%;height:56px;line-height:56px;position:absolute;top:0;left:0;z-index:10;text-align:center;font-size:18px;background-color:#3b3a3f;color:#fff;}
+.chat .text{width:100%;height:100%;padding:0 12px 10px;box-sizing:border-box;overflow-x:hidden;overflow-y:auto;}
+.chat .text::-webkit-scrollbar {/*滚动条整体样式*/
+	width:6px;     /*高宽分别对应横竖滚动条的尺寸*/
+	height:1px;
+}
+.chat .text::-webkit-scrollbar-thumb {/*滚动条里面小方块*/
+	border-radius:5px;
+	background:#7b889c;
+}
+.chat .text::-webkit-scrollbar-track {/*滚动条里面轨道*/
+	/*-webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);*/
+	border-radius:5px;
+	background:#d9dde4;
+}
+.chat .text li{width:90%;position:relative;margin-top:18px;box-sizing:border-box;}
+.chat .text li img{width:40px;height:40px;border-radius:50%;position:absolute;top:0;}
+.chat .text .txt{min-height:40px;font-size:15px;line-height:24px;padding:8px;box-sizing:border-box;border-radius:6px;border:1px solid #d8d8d8;color:#333;}
+.chat .text .t1{padding-left:52px;float:left;}
+.chat .text .t2{padding-right:52px;float:right;}
+.chat .text .t1 img{left:0;}
+.chat .text .t2 img{right:0;}
+.chat .text .t1 .txt{float:left;background-color:#fff;}
+.chat .text .t2 .txt{float:right;background-color:#98e855;}
+.chat .cont{width:100%;height:52px;position:absolute;left:0;bottom:0px;z-index:10;background-color:#ebebeb;padding:8px 76px 8px 12px;box-sizing:border-box;box-shadow:0 -2px 5px #d8d8d8;}
+.chat .cont .inp{width:100%;height:36px;margin:0;padding:5px 10px;border:1px solid #d8d8d8;color:#333;box-sizing:border-box;background-color:#fff;border-radius:18px;}
+.chat .cont .inp::-webkit-input-placeholder{color:#999;}
+.chat .cont .inp::-moz-placeholder{color:#999;}
+.chat .cont .inp::-ms-input-placeholder{color:#999;}
+.chat .cont .send{width:54px;height:34px;line-height:34px;text-align:center;position:absolute;right:12px;top:9px;color:#fff;background-color:#02cb0b;}
+.chat .cont .send:hover{background-color:#01d40d;}

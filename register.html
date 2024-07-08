@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>CyberMate注册页面</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <style>
+        .error {
+            color: red;
+            font-size: 12px;
+        }
+        .success {
+            color: green;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <h1>CyberMate注册页面</h1>
+    <form id="registerForm">
+        <label for="userqq">QQ号:</label>
+        <input type="text" id="userqq" name="userqq" required><br><br>
+        <label for="nickname">昵称:</label>
+        <input type="text" id="nickname" name="nickname" required><br><br>
+        <label for="password">密码:</label>
+        <input type="password" id="password" name="password" required><br><br>
+        <label for="verifyCode">验证码:</label>
+        <input type="text" id="verifyCode" name="verifyCode" required>
+        <button type="button" id="sendVerifyCode">发送验证码</button><br><br>
+        <span id="verifyCodeMessage" class="success"></span><br>
+        <button type="button" id="submitRegister">提交</button>
+    </form>
+    <a href="./login.html">登录已有账号</a>
+
+    <script>
+        document.getElementById('sendVerifyCode').addEventListener('click', function() {
+            var userqq = document.getElementById('userqq').value;
+            var nickname = document.getElementById('nickname').value;
+            var password = document.getElementById('password').value;
+            if (userqq === '' || nickname === '' || password === '') {
+                alert('请填写所有必填项');
+                return;
+            }
+            axios.post('/api/login/user_register', { 
+                userqq: userqq,
+                nickname: nickname,
+                password: password
+            })
+            .then(function(response) {
+                if (response.data.code === 0) {
+                    document.getElementById('verifyCodeMessage').innerText = '验证码已发送，请及时填写';
+                } else {
+                    alert(response.data.message);
+                }
+            })
+            .catch(function(error) {
+                console.log(error);
+            });
+        });
+
+        document.getElementById('submitRegister').addEventListener('click', function() {
+            var userqq = document.getElementById('userqq').value;
+            var verifyCode = document.getElementById('verifyCode').value;
+            if (userqq === '' || verifyCode === '') {
+                alert('请填写所有必填项');
+                return;
+            }
+            axios.post('/api/login/user_verify', {
+                userqq: userqq,
+                verifyCode: verifyCode
+            })
+            .then(function(response) {
+                if (response.data.code === 0) {
+                    alert(response.data.message);
+                    window.location.href = './login.html'; // 跳转到登录页面
+                } else {
+                    alert(response.data.message);
+                }
+            })
+            .catch(function(error) {
+                console.log(error);
+            });
+        });
+    </script>
+</body>
+</html>

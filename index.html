@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<!-- 聊天窗口部分基于 http://api.qingyunke.com/ 首页的聊天窗口进行修改 -->
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>巨信</title>
+    <link rel="stylesheet" type="text/css" href="css/chatbox.css" />
+    <link rel="stylesheet" type="text/css" href="css/global.css" />
+    <script src="js/jquery.min.js"></script>
+    <script src="js/codeSnippet.js"></script>
+</head>
+
+<body>
+    <div class="chatname-container">
+        <label for="chatname" class="chatname-label">扮演者名称:</label>
+        <input type="text" id="chatname" name="chatname"><br><br>
+        <button type="button" id="submitChatname" onclick="init()">提交</button>
+    </div>
+    <div id="main-area">
+        <div id="chatbox" class="chat">
+            <div class="title">巨信终端</div>
+            <ul class="text" id="ui_msg_box">
+            </ul>
+            <div class="cont">
+                <input type="text" placeholder="在这里输入文字" class="inp" id="ui_inp_msg" />
+                <a href="javascript:" class="send" onclick="sendmsgOnChatbox()">发送</a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

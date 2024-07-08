@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>CyberMate登录页面</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <style>
+        .error {
+            color: red;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <h1>CyberMate登录页面</h1>
+    <form id="loginForm">
+        <label for="userqq">QQ号:</label>
+        <input type="text" id="userqq" name="userqq" required><br><br>
+        <label for="password">密码:</label>
+        <input type="password" id="password" name="password" required><br><br>
+        <button type="button" id="submitLogin">提交</button>
+    </form>
+    <a href="./register.html">注册新账号</a>
+
+    <script>
+        document.getElementById('submitLogin').addEventListener('click', function() {
+            var userqq = document.getElementById('userqq').value;
+            var password = document.getElementById('password').value;
+            if (userqq === '' || password === '') {
+                alert('请填写QQ号和密码');
+                return;
+            }
+            axios.post('/api/login/user_login', {
+                userqq: userqq,
+                password: password
+            })
+            .then(function(response) {
+                if (response.data.code === 0) {
+                    //document.cookie = `userqq=${response.data.data.userqq}; logintoken=${response.data.data.logintoken}; path=/`;
+                    window.location.href = './index.html'; // 跳转到首页
+                } else {
+                    alert(response.data.message);
+                }
+            })
+            .catch(function(error) {
+                console.log(error);
+            });
+        });
+    </script>
+</body>
+</html>
