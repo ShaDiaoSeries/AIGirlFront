@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>CyberMate注册页面</title>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="assets/axios.min.js"></script>
     <style>
         .error {
             color: red;
@@ -41,7 +41,7 @@
                 alert('请填写所有必填项');
                 return;
             }
-            axios.post('/api/login/user_register', { 
+            axios.post('/jsapi/login/user_register', { 
                 userqq: userqq,
                 nickname: nickname,
                 password: password
@@ -65,7 +65,7 @@
                 alert('请填写所有必填项');
                 return;
             }
-            axios.post('/api/login/user_verify', {
+            axios.post('/jsapi/login/user_verify', {
                 userqq: userqq,
                 verifyCode: verifyCode
             })

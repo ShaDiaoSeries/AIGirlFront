@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>CyberMate登录页面</title>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="assets/axios.min.js"></script> 
     <style>
         .error {
             color: red;
@@ -30,7 +30,7 @@
                 alert('请填写QQ号和密码');
                 return;
             }
-            axios.post('/api/login/user_login', {
+            axios.post('/jsapi/login/user_login', {
                 userqq: userqq,
                 password: password
             })

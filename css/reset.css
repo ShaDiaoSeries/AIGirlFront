@@ -1,0 +1,97 @@
+/* reset.css */
+
+/* Reset box-sizing to border-box for all elements */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin and padding */
+body, h1, h2, h3, h4, h5, h6, p, figure, blockquote, dl, dd {
+  margin: 0;
+  padding: 0;
+}
+
+/* Set default font family and size */
+body {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+/* Reset headings */
+h1, h2, h3, h4, h5, h6 {
+  font-size: 100%;
+  font-weight: normal;
+}
+
+/* Reset lists */
+ul, ol {
+  list-style: none;
+}
+
+/* Reset form elements */
+input, button, textarea, select {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  margin: 0;
+}
+
+/* Reset links */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Reset table elements */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* Reset images */
+img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
+
+/* Reset form elements */
+button, input, optgroup, select, textarea {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  padding: 0;
+  border: none;
+  background: none;
+  color: inherit;
+}
+
+/* Remove outlines for elements that do not need them */
+button:focus, input:focus, select:focus, textarea:focus {
+  outline: none;
+}
+
+/* Reset HTML5 elements */
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block;
+}
+
+/* Remove default focus styles for buttons and links */
+button:focus, a:focus {
+  outline: none;
+}
+
+/* Remove default styling for radio buttons and checkboxes */
+input[type="radio"], input[type="checkbox"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+/* Reset default cursor for buttons */
+button {
+  cursor: pointer;
+}
